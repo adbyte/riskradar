@@ -142,10 +142,7 @@ const SupplierDashboard = () => {
                         <span className="text-gray-600">
                           {category.requiredDocuments.length} documents required
                         </span>
-                        <Button variant="outline" size="sm">
-                          <Upload className="h-4 w-4 mr-2" />
-                          Upload
-                        </Button>
+                       
                       </div>
                     </CardContent>
                   </Card>
