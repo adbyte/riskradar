@@ -39,10 +39,13 @@ const SupplierLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-4">
+          <Link
+            to="/"
+            className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-4"
+          >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
@@ -55,9 +58,12 @@ const SupplierLogin = () => {
 
         <Card className="shadow-lg border-0">
           <CardHeader className="text-center">
-            <CardTitle className="text-xl text-green-700">Welcome Back</CardTitle>
+            <CardTitle className="text-xl text-green-700">
+              Welcome Back
+            </CardTitle>
             <CardDescription>
-              Sign in to manage your compliance documentation and track your ESG score
+              Sign in to manage your compliance documentation and track your ESG
+              score
             </CardDescription>
           </CardHeader>
           <CardContent>

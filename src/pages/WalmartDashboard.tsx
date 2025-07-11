@@ -42,18 +42,26 @@ const WalmartDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
       <WalmartNavbar />
-      
+
       <div className="container mx-auto p-6">
         {/* Dashboard Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Supplier Risk Analytics</h1>
-            <p className="text-gray-600">Monitor ESG compliance across your global supplier network</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              Supplier Risk Analytics
+            </h1>
+
+            <p className="text-gray-600">
+              Monitor ESG compliance across your global supplier network
+            </p>
           </div>
           <div className="flex items-center space-x-4">
-            <Select value={viewMode} onValueChange={(value: 'map' | 'table') => setViewMode(value)}>
+            <Select
+              value={viewMode}
+              onValueChange={(value: "map" | "table") => setViewMode(value)}
+            >
               <SelectTrigger className="w-40">
                 <SelectValue />
               </SelectTrigger>
@@ -77,10 +85,14 @@ const WalmartDashboard = () => {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-8">
               <Card>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-gray-600">Total Suppliers</CardTitle>
+                  <CardTitle className="text-sm font-medium text-gray-600">
+                    Total Suppliers
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-gray-900">{totalSuppliers}</div>
+                  <div className="text-3xl font-bold text-gray-900">
+                    {totalSuppliers}
+                  </div>
                   <div className="flex items-center text-sm text-gray-600 mt-1">
                     <Users className="h-4 w-4 mr-1" />
                     Active partnerships
@@ -90,49 +102,65 @@ const WalmartDashboard = () => {
 
               <Card className="border-l-4 border-l-green-500">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-green-700">Low Risk</CardTitle>
+                  <CardTitle className="text-sm font-medium text-green-700">
+                    Low Risk
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-green-600">{lowRiskSuppliers}</div>
+                  <div className="text-3xl font-bold text-green-600">
+                    {lowRiskSuppliers}
+                  </div>
                   <div className="flex items-center text-sm text-green-600 mt-1">
-                    <TrendingUp className="h-4 w-4 mr-1" />
-                    +{riskTrends.low.change} this month
+                    <TrendingUp className="h-4 w-4 mr-1" />+
+                    {riskTrends.low.change} this month
                   </div>
                 </CardContent>
               </Card>
 
               <Card className="border-l-4 border-l-yellow-500">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-yellow-700">Medium Risk</CardTitle>
+                  <CardTitle className="text-sm font-medium text-yellow-700">
+                    Medium Risk
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-yellow-600">{mediumRiskSuppliers}</div>
+                  <div className="text-3xl font-bold text-yellow-600">
+                    {mediumRiskSuppliers}
+                  </div>
                   <div className="flex items-center text-sm text-yellow-600 mt-1">
-                    <TrendingUp className="h-4 w-4 mr-1" />
-                    +{riskTrends.medium.change} this month
+                    <TrendingUp className="h-4 w-4 mr-1" />+
+                    {riskTrends.medium.change} this month
                   </div>
                 </CardContent>
               </Card>
 
               <Card className="border-l-4 border-l-red-500">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-red-700">High Risk</CardTitle>
+                  <CardTitle className="text-sm font-medium text-red-700">
+                    High Risk
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-red-600">{highRiskSuppliers}</div>
+                  <div className="text-3xl font-bold text-red-600">
+                    {highRiskSuppliers}
+                  </div>
                   <div className="flex items-center text-sm text-red-600 mt-1">
-                    <TrendingDown className="h-4 w-4 mr-1" />
-                    -{Math.abs(riskTrends.high.change)} this month
+                    <TrendingDown className="h-4 w-4 mr-1" />-
+                    {Math.abs(riskTrends.high.change)} this month
                   </div>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-gray-600">Avg. ESG Score</CardTitle>
+                  <CardTitle className="text-sm font-medium text-gray-600">
+                    Avg. ESG Score
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-blue-600">{averageScore}</div>
+                  <div className="text-3xl font-bold text-blue-600">
+                    {averageScore}
+                  </div>
                   <div className="flex items-center text-sm text-blue-600 mt-1">
                     <TrendingUp className="h-4 w-4 mr-1" />
                     +3.2 vs last quarter
@@ -148,7 +176,9 @@ const WalmartDashboard = () => {
                   <AlertTriangle className="h-5 w-5 mr-2 text-orange-600" />
                   Recent Risk Alerts
                 </CardTitle>
-                <CardDescription>High-priority compliance issues requiring attention</CardDescription>
+                <CardDescription>
+                  High-priority compliance issues requiring attention
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -158,12 +188,18 @@ const WalmartDashboard = () => {
                         <AlertTriangle className="h-4 w-4 text-red-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-red-900">Environmental Violation</h3>
-                        <p className="text-sm text-red-700">Bangalore Electronics Corp - Exceeded emission limits</p>
+                        <h3 className="font-semibold text-red-900">
+                          Environmental Violation
+                        </h3>
+                        <p className="text-sm text-red-700">
+                          Bangalore Electronics Corp - Exceeded emission limits
+                        </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <Badge className="bg-red-100 text-red-800">High Risk</Badge>
+                      <Badge className="bg-red-100 text-red-800">
+                        High Risk
+                      </Badge>
                       <p className="text-xs text-red-600 mt-1">2 days ago</p>
                     </div>
                   </div>
@@ -174,12 +210,18 @@ const WalmartDashboard = () => {
                         <AlertTriangle className="h-4 w-4 text-yellow-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-yellow-900">Labor Compliance Issue</h3>
-                        <p className="text-sm text-yellow-700">Delhi Textiles - Overtime hours exceeded limits</p>
+                        <h3 className="font-semibold text-yellow-900">
+                          Labor Compliance Issue
+                        </h3>
+                        <p className="text-sm text-yellow-700">
+                          Delhi Textiles - Overtime hours exceeded limits
+                        </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <Badge className="bg-yellow-100 text-yellow-800">Medium Risk</Badge>
+                      <Badge className="bg-yellow-100 text-yellow-800">
+                        Medium Risk
+                      </Badge>
                       <p className="text-xs text-yellow-600 mt-1">5 days ago</p>
                     </div>
                   </div>
@@ -190,13 +232,21 @@ const WalmartDashboard = () => {
                         <Calendar className="h-4 w-4 text-orange-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-orange-900">Audit Overdue</h3>
-                        <p className="text-sm text-orange-700">Kolkata Steel Works - Annual audit due in 7 days</p>
+                        <h3 className="font-semibold text-orange-900">
+                          Audit Overdue
+                        </h3>
+                        <p className="text-sm text-orange-700">
+                          Kolkata Steel Works - Annual audit due in 7 days
+                        </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <Badge className="bg-orange-100 text-orange-800">Action Required</Badge>
-                      <p className="text-xs text-orange-600 mt-1">1 week remaining</p>
+                      <Badge className="bg-orange-100 text-orange-800">
+                        Action Required
+                      </Badge>
+                      <p className="text-xs text-orange-600 mt-1">
+                        1 week remaining
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -205,14 +255,14 @@ const WalmartDashboard = () => {
           </TabsContent>
 
           <TabsContent value="suppliers" className="mt-6">
-            {viewMode === 'map' ? (
-              <SupplierHeatMap 
-                suppliers={mockSuppliers} 
+            {viewMode === "map" ? (
+              <SupplierHeatMap
+                suppliers={mockSuppliers}
                 onSupplierSelect={setSelectedSupplier}
               />
             ) : (
-              <SupplierTable 
-                suppliers={mockSuppliers} 
+              <SupplierTable
+                suppliers={mockSuppliers}
                 onSupplierSelect={setSelectedSupplier}
               />
             )}
@@ -223,12 +273,16 @@ const WalmartDashboard = () => {
               <Card>
                 <CardHeader>
                   <CardTitle>Risk Distribution Trends</CardTitle>
-                  <CardDescription>Changes in supplier risk levels over time</CardDescription>
+                  <CardDescription>
+                    Changes in supplier risk levels over time
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">High Risk Suppliers</span>
+                      <span className="text-sm font-medium">
+                        High Risk Suppliers
+                      </span>
                       <div className="flex items-center space-x-2">
                         <div className="bg-red-100 px-2 py-1 rounded text-sm text-red-700">
                           -{Math.abs(riskTrends.high.change)} suppliers
@@ -237,7 +291,9 @@ const WalmartDashboard = () => {
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Medium Risk Suppliers</span>
+                      <span className="text-sm font-medium">
+                        Medium Risk Suppliers
+                      </span>
                       <div className="flex items-center space-x-2">
                         <div className="bg-yellow-100 px-2 py-1 rounded text-sm text-yellow-700">
                           +{riskTrends.medium.change} supplier
@@ -246,7 +302,9 @@ const WalmartDashboard = () => {
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Low Risk Suppliers</span>
+                      <span className="text-sm font-medium">
+                        Low Risk Suppliers
+                      </span>
                       <div className="flex items-center space-x-2">
                         <div className="bg-green-100 px-2 py-1 rounded text-sm text-green-700">
                           +{riskTrends.low.change} supplier
@@ -261,29 +319,41 @@ const WalmartDashboard = () => {
               <Card>
                 <CardHeader>
                   <CardTitle>Regional Risk Assessment</CardTitle>
-                  <CardDescription>Risk concentration by geographic region</CardDescription>
+                  <CardDescription>
+                    Risk concentration by geographic region
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium">Maharashtra</span>
-                      <Badge className="bg-green-100 text-green-800">Low Risk</Badge>
+                      <Badge className="bg-green-100 text-green-800">
+                        Low Risk
+                      </Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium">Tamil Nadu</span>
-                      <Badge className="bg-green-100 text-green-800">Low Risk</Badge>
+                      <Badge className="bg-green-100 text-green-800">
+                        Low Risk
+                      </Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium">Delhi</span>
-                      <Badge className="bg-yellow-100 text-yellow-800">Medium Risk</Badge>
+                      <Badge className="bg-yellow-100 text-yellow-800">
+                        Medium Risk
+                      </Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium">West Bengal</span>
-                      <Badge className="bg-yellow-100 text-yellow-800">Medium Risk</Badge>
+                      <Badge className="bg-yellow-100 text-yellow-800">
+                        Medium Risk
+                      </Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium">Karnataka</span>
-                      <Badge className="bg-red-100 text-red-800">High Risk</Badge>
+                      <Badge className="bg-red-100 text-red-800">
+                        High Risk
+                      </Badge>
                     </div>
                   </div>
                 </CardContent>

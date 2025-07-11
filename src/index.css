@@ -103,3 +103,22 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+/* For non-Tailwind apps or overriding legacy CSS */
+
+html.dark body {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+html.dark a {
+  color: #90cdf4;
+}
+
+html.dark input, 
+html.dark textarea, 
+html.dark select, 
+html.dark button {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-color: #333;
+}

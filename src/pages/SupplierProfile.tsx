@@ -20,13 +20,17 @@ const SupplierProfile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
       <SupplierNavbar />
-      
+
       <div className="container mx-auto p-6">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Company Profile</h1>
-          <p className="text-gray-600">Manage your company information and contact details</p>
+          <h1 className="text-3xl font-bold text-gray-900  dark:text-white mb-2 ">
+            Company Profile
+          </h1>
+          <p className="text-gray-600">
+            Manage your company information and contact details
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -44,7 +48,9 @@ const SupplierProfile = () => {
                   <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Building2 className="h-10 w-10 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold text-lg">ABC Manufacturing Ltd.</h3>
+                  <h3 className="font-semibold text-lg">
+                    ABC Manufacturing Ltd.
+                  </h3>
                   <p className="text-gray-600">Supplier ID: SUP-001</p>
                 </div>
 
@@ -70,9 +76,15 @@ const SupplierProfile = () => {
                 <div className="pt-4 border-t">
                   <h4 className="font-medium mb-2">Active Certifications</h4>
                   <div className="space-y-2">
-                    <Badge variant="outline" className="w-full justify-start">ISO 14001</Badge>
-                    <Badge variant="outline" className="w-full justify-start">SA8000</Badge>
-                    <Badge variant="outline" className="w-full justify-start">Fair Trade</Badge>
+                    <Badge variant="outline" className="w-full justify-start">
+                      ISO 14001
+                    </Badge>
+                    <Badge variant="outline" className="w-full justify-start">
+                      SA8000
+                    </Badge>
+                    <Badge variant="outline" className="w-full justify-start">
+                      Fair Trade
+                    </Badge>
                   </div>
                 </div>
               </CardContent>
@@ -85,25 +97,37 @@ const SupplierProfile = () => {
               <CardHeader>
                 <CardTitle>Company Information</CardTitle>
                 <CardDescription>
-                  Update your company details and ensure information accuracy for compliance
+                  Update your company details and ensure information accuracy
+                  for compliance
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="companyName">Company Name</Label>
-                    <Input id="companyName" defaultValue="ABC Manufacturing Ltd." />
+                    <Input
+                      id="companyName"
+                      defaultValue="ABC Manufacturing Ltd."
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="registrationNumber">Registration Number</Label>
-                    <Input id="registrationNumber" defaultValue="MH-2019-PLC-123456" />
+                    <Label htmlFor="registrationNumber">
+                      Registration Number
+                    </Label>
+                    <Input
+                      id="registrationNumber"
+                      defaultValue="MH-2019-PLC-123456"
+                    />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="industry">Industry</Label>
-                    <Input id="industry" defaultValue="Manufacturing - Textiles" />
+                    <Input
+                      id="industry"
+                      defaultValue="Manufacturing - Textiles"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="employees">Number of Employees</Label>
@@ -113,8 +137,8 @@ const SupplierProfile = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="address">Complete Address</Label>
-                  <Textarea 
-                    id="address" 
+                  <Textarea
+                    id="address"
                     defaultValue="Plot No. 45, Industrial Area, Andheri East, Mumbai, Maharashtra 400069, India"
                     rows={3}
                   />
@@ -127,14 +151,21 @@ const SupplierProfile = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" type="email" defaultValue="contact@abcmanufacturing.com" />
+                    <Input
+                      id="email"
+                      type="email"
+                      defaultValue="contact@abcmanufacturing.com"
+                    />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="website">Website</Label>
-                    <Input id="website" defaultValue="www.abcmanufacturing.com" />
+                    <Input
+                      id="website"
+                      defaultValue="www.abcmanufacturing.com"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="yearEstablished">Year Established</Label>
@@ -144,8 +175,8 @@ const SupplierProfile = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="description">Company Description</Label>
-                  <Textarea 
-                    id="description" 
+                  <Textarea
+                    id="description"
                     defaultValue="ABC Manufacturing Ltd. is a leading textile manufacturer specializing in sustainable and ethical production practices. We are committed to environmental responsibility and fair labor practices across our operations."
                     rows={4}
                   />
@@ -153,8 +184,8 @@ const SupplierProfile = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="products">Products/Services</Label>
-                  <Textarea 
-                    id="products" 
+                  <Textarea
+                    id="products"
                     defaultValue="Organic cotton textiles, Sustainable fabric manufacturing, Custom apparel production, Eco-friendly packaging solutions"
                     rows={3}
                   />
@@ -162,7 +193,10 @@ const SupplierProfile = () => {
 
                 <div className="flex justify-end space-x-4 pt-6">
                   <Button variant="outline">Cancel</Button>
-                  <Button onClick={handleSave} className="bg-green-600 hover:bg-green-700">
+                  <Button
+                    onClick={handleSave}
+                    className="bg-green-600 hover:bg-green-700"
+                  >
                     <Save className="h-4 w-4 mr-2" />
                     Save Changes
                   </Button>
@@ -175,7 +209,8 @@ const SupplierProfile = () => {
               <CardHeader>
                 <CardTitle>Key Contacts</CardTitle>
                 <CardDescription>
-                  Manage primary contacts for different departments and compliance
+                  Manage primary contacts for different departments and
+                  compliance
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -187,7 +222,10 @@ const SupplierProfile = () => {
                     </div>
                     <div>
                       <Label className="text-sm font-medium">Email</Label>
-                      <Input defaultValue="priya.sharma@abcmanufacturing.com" className="mt-1" />
+                      <Input
+                        defaultValue="priya.sharma@abcmanufacturing.com"
+                        className="mt-1"
+                      />
                     </div>
                     <div>
                       <Label className="text-sm font-medium">Phone</Label>
@@ -197,12 +235,17 @@ const SupplierProfile = () => {
 
                   <div className="grid md:grid-cols-3 gap-4 p-4 border rounded-lg">
                     <div>
-                      <Label className="text-sm font-medium">Operations Head</Label>
+                      <Label className="text-sm font-medium">
+                        Operations Head
+                      </Label>
                       <Input defaultValue="Rajesh Kumar" className="mt-1" />
                     </div>
                     <div>
                       <Label className="text-sm font-medium">Email</Label>
-                      <Input defaultValue="rajesh.kumar@abcmanufacturing.com" className="mt-1" />
+                      <Input
+                        defaultValue="rajesh.kumar@abcmanufacturing.com"
+                        className="mt-1"
+                      />
                     </div>
                     <div>
                       <Label className="text-sm font-medium">Phone</Label>
@@ -217,7 +260,10 @@ const SupplierProfile = () => {
                     </div>
                     <div>
                       <Label className="text-sm font-medium">Email</Label>
-                      <Input defaultValue="anita.desai@abcmanufacturing.com" className="mt-1" />
+                      <Input
+                        defaultValue="anita.desai@abcmanufacturing.com"
+                        className="mt-1"
+                      />
                     </div>
                     <div>
                       <Label className="text-sm font-medium">Phone</Label>
