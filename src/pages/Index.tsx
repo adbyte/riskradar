@@ -6,29 +6,27 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between drop-shadow-2xl">
           <div className="flex items-center space-x-3">
-            <div className="bg-blue-600 p-2 rounded-lg">
-              <Shield className="h-8 w-8 text-white" />
+            <div className="bg-blue-600 p-2 rounded-lg shadow-lg shadow-blue-400/80 animate-pulse">
+              <Shield className="h-8 w-8 text-white drop-shadow-glow" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900  dark:text-white mb-2">
-                Walmart
-              </h1>
-              <p className="text-sm text-gray-600">Risk Compass System</p>
+              <h1 className="text-4xl font-extrabold text-white mb-2 drop-shadow-glow animate-glow">WalSync</h1>
+              <p className="text-lg text-blue-300 font-semibold drop-shadow-glow">See Everything. Trust Everything</p>
             </div>
           </div>
           <div className="flex space-x-4">
             <Link to="/supplier/login">
-              <Button variant="outline" className="hover:bg-blue-50">
+              <Button variant="outline" className="border-2 border-green-400 text-green-400 hover:bg-green-600 hover:text-white shadow-lg shadow-green-400/80 animate-pulse">
                 Supplier Portal
               </Button>
             </Link>
             <Link to="/walmart/login">
-              <Button className="bg-blue-600 hover:bg-blue-700">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-400 shadow-lg shadow-blue-400/80 animate-pulse">
                 Walmart Dashboard
               </Button>
             </Link>
@@ -39,33 +37,33 @@ const Index = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-16 text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl font-bold text-gray-900  dark:text-white mb-2 mb-6">
-            AI-Driven Supplier Risk &
-            <span className="text-blue-600"> Compliance Platform</span>
+          <h2 className="text-6xl font-extrabold text-white mb-6 drop-shadow-glow animate-glow">
+            <span className="text-blue-400">Blockchain</span> Based Sustainability
+            <span className="text-yellow-400 drop-shadow-glow"> Tracking and Management Platform </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-white mb-2 leading-relaxed">
+          <p className="text-2xl text-white mb-6 leading-relaxed drop-shadow-glow animate-glow">
             Comprehensive ESG risk management with real-time monitoring,
-            AI-powered analysis, and automated compliance scoring for
+            <span className="text-white"> AI-powered analysis </span>, and <span className="text-white">automated compliance scoring </span> for
             sustainable supply chains.
           </p>
           <div className="flex justify-center space-x-6">
             <Link to="/supplier/login">
               <Button
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 px-8 py-3"
+                className="bg-green-500 hover:bg-green-700 px-8 py-3 text-white font-bold shadow-lg shadow-green-400/80 border-2 border-green-300 animate-pulse"
               >
-                <Users className="mr-2 h-5 w-5" />
+                <Users className="mr-2 h-5 w-5 text-yellow-300 drop-shadow-glow" />
                 Supplier Access
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 text-yellow-300 drop-shadow-glow" />
               </Button>
             </Link>
             <Link to="/walmart/login">
               <Button
                 size="lg"
                 variant="outline"
-                className="px-8 py-3 border-blue-600 text-blue-600 hover:bg-blue-50"
+                className="px-8 py-3 border-2 border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white font-bold shadow-lg shadow-blue-400/80 animate-pulse"
               >
-                <BarChart3 className="mr-2 h-5 w-5" />
+                <BarChart3 className="mr-2 h-5 w-5 text-pink-300 drop-shadow-glow" />
                 View Analytics
               </Button>
             </Link>
@@ -76,89 +74,78 @@ const Index = () => {
       {/* Features Grid */}
       <section className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="hover:shadow-lg transition-shadow border-l-4 border-l-blue-500">
+          <Card className="hover:shadow-2xl transition-shadow border-l-8 border-l-blue-400 bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 animate-glow shadow-blue-400/80">
             <CardHeader>
-              <div className="bg-blue-100 p-3 rounded-full w-fit">
-                <Shield className="h-6 w-6 text-blue-600" />
+              <div className="bg-blue-400 p-3 rounded-full w-fit shadow-lg shadow-blue-300/80 animate-pulse">
+                <Shield className="h-6 w-6 text-yellow-300 drop-shadow-glow" />
               </div>
-              <CardTitle className="text-xl">
-                Real-Time Risk Monitoring
-              </CardTitle>
-              <CardDescription>
-                Continuous monitoring of supplier ESG compliance with AI-powered
-                risk assessment
-              </CardDescription>
+              <CardTitle className="text-2xl text-white drop-shadow-glow animate-glow">Real-Time Risk Monitoring</CardTitle>
+              <CardDescription className="text-blue-100 font-semibold drop-shadow-glow">Continuous monitoring of supplier ESG compliance with AI-powered risk assessment</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-lg text-white">
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-yellow-300 mr-2 drop-shadow-glow" />
                   Carbon emissions tracking
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-yellow-300 mr-2 drop-shadow-glow" />
                   Labor compliance monitoring
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-yellow-300 mr-2 drop-shadow-glow" />
                   Environmental regulation alerts
                 </li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow border-l-4 border-l-green-500">
+          <Card className="hover:shadow-2xl transition-shadow border-l-8 border-l-yellow-400 bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 animate-glow shadow-yellow-400/80">
             <CardHeader>
-              <div className="bg-green-100 p-3 rounded-full w-fit">
-                <Globe className="h-6 w-6 text-green-600" />
+              <div className="bg-yellow-400 p-3 rounded-full w-fit shadow-lg shadow-yellow-300/80 animate-pulse">
+                <Globe className="h-6 w-6 text-blue-600 drop-shadow-glow" />
               </div>
-              <CardTitle className="text-xl">Interactive Heat Maps</CardTitle>
-              <CardDescription>
-                Visual representation of supplier risk levels across
-                geographical regions
-              </CardDescription>
+              <CardTitle className="text-2xl text-white drop-shadow-glow animate-glow">Interactive Heat Maps</CardTitle>
+              <CardDescription className="text-yellow-100 font-semibold drop-shadow-glow">Visual representation of supplier risk levels across geographical regions</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-lg text-white">
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-blue-400 mr-2 drop-shadow-glow" />
                   Geographic risk visualization
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-blue-400 mr-2 drop-shadow-glow" />
                   Color-coded risk levels
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-blue-400 mr-2 drop-shadow-glow" />
                   Drill-down capabilities
                 </li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow border-l-4 border-l-purple-500">
+          <Card className="hover:shadow-2xl transition-shadow border-l-8 border-l-blue-400 bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 animate-glow shadow-blue-400/80">
             <CardHeader>
-              <div className="bg-purple-100 p-3 rounded-full w-fit">
-                <TrendingUp className="h-6 w-6 text-purple-600" />
+              <div className="bg-blue-400 p-3 rounded-full w-fit shadow-lg shadow-blue-300/80 animate-pulse">
+                <TrendingUp className="h-6 w-6 text-yellow-300 drop-shadow-glow" />
               </div>
-              <CardTitle className="text-xl">AI-Powered Analytics</CardTitle>
-              <CardDescription>
-                Advanced machine learning algorithms for predictive risk
-                analysis
-              </CardDescription>
+              <CardTitle className="text-2xl text-white drop-shadow-glow animate-glow">AI-Powered Analytics</CardTitle>
+              <CardDescription className="text-blue-100 font-semibold drop-shadow-glow">Advanced machine learning algorithms for predictive risk analysis</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-lg text-white">
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-yellow-300 mr-2 drop-shadow-glow" />
                   Predictive risk scoring
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-yellow-300 mr-2 drop-shadow-glow" />
                   Trend analysis
                 </li>
                 <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-yellow-300 mr-2 drop-shadow-glow" />
                   Automated recommendations
                 </li>
               </ul>
@@ -168,15 +155,11 @@ const Index = () => {
       </section>
 
       {/* ESG Categories */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-white py-16">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Comprehensive ESG Tracking
-            </h3>
-            <p className="text-lg text-gray-600">
-              Monitor 10 critical compliance categories
-            </p>
+            <h3 className="text-4xl font-extrabold text-gray-900 mb-4">Comprehensive ESG Tracking</h3>
+            <p className="text-2xl text-gray-600 font-semibold">Monitor 10 critical compliance categories</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -193,13 +176,13 @@ const Index = () => {
             ].map((category, index) => (
               <div
                 key={index}
-                className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200"
               >
                 <div className="flex items-center space-x-3">
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <div className="bg-yellow-400 p-2 rounded-full">
+                    <CheckCircle className="h-5 w-5 text-blue-600" />
                   </div>
-                  <span className="font-medium text-gray-900">{category}</span>
+                  <span className="font-bold text-gray-900">{category}</span>
                 </div>
               </div>
             ))}
@@ -208,16 +191,16 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-black text-white py-12 border-t-4 border-yellow-400 animate-glow">
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="bg-blue-600 p-2 rounded-lg">
-              <Shield className="h-6 w-6 text-white" />
+            <div className="bg-blue-600 p-2 rounded-lg shadow-lg shadow-blue-400/80 animate-pulse">
+              <Shield className="h-6 w-6 text-white drop-shadow-glow" />
             </div>
-            <h4 className="text-xl font-bold">Walmart Risk Compass</h4>
+            <h4 className="text-2xl font-extrabold text-white drop-shadow-glow animate-glow">WalSync</h4>
           </div>
-          <p className="text-gray-400">
-            Powered by AI • Secured by Design • Built for Scale
+          <p className="text-2xl font-bold text-white drop-shadow-glow animate-glow">
+            Powered by AI • Secured by Blockchain • Built for Scale
           </p>
         </div>
       </footer>

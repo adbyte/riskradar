@@ -20,8 +20,8 @@ const WalmartNavbar = () => {
             <Shield className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-gray-900">
-              Walmart Risk Compass
+            <h1 className="text-xl font-bold text-blue-600">
+              WalSync
             </h1>
             <p className="text-sm text-gray-500">
               Procurement & Compliance Dashboard

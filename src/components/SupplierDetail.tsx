@@ -42,90 +42,78 @@ const SupplierDetail = ({ supplier, onBack }: SupplierDetailProps) => {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="min-h-screen w-full px-8 pt-10 pb-8 bg-gradient-to-br from-gray-900 via-blue-950 to-black text-white">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center space-x-4">
-          <Button variant="outline" onClick={onBack}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
+          <Button variant="outline" onClick={onBack} className="text-blue-300 border-blue-400 font-bold drop-shadow-glow animate-glow">
+            <ArrowLeft className="h-4 w-4 mr-2 text-blue-300 drop-shadow-glow animate-glow" />
             Back to Dashboard
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">{supplier.name}</h1>
-            <div className="flex items-center text-gray-600 mt-1">
-              <MapPin className="h-4 w-4 mr-1" />
+            <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-400 via-blue-200 to-white bg-clip-text text-transparent drop-shadow-glow animate-glow">{supplier.name}</h1>
+            <div className="flex items-center text-blue-200 mt-1 drop-shadow-glow animate-glow">
+              <MapPin className="h-4 w-4 mr-1 text-blue-300 drop-shadow-glow animate-glow" />
               {supplier.location.city}, {supplier.location.state}, {supplier.location.country}
             </div>
           </div>
         </div>
         <div className="text-right">
-          <div className={`text-3xl font-bold ${getScoreColor(supplier.esgScore)}`}>
-            {supplier.esgScore}/100
-          </div>
-          <Badge className={getRiskColor(supplier.riskLevel)}>
-            {supplier.riskLevel.toUpperCase()} RISK
-          </Badge>
+          <div className={`text-3xl font-extrabold drop-shadow-glow animate-glow ${getScoreColor(supplier.esgScore)}`}>{supplier.esgScore}/100</div>
+          <Badge className={getRiskColor(supplier.riskLevel) + ' font-bold drop-shadow-glow animate-glow'}>{supplier.riskLevel.toUpperCase()} RISK</Badge>
         </div>
       </div>
 
       {/* Key Metrics Cards */}
       <div className="grid md:grid-cols-4 gap-6 mb-8">
-        <Card>
+        <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-600">ESG Score</CardTitle>
+            <CardTitle className="text-sm font-bold text-blue-300 drop-shadow-glow animate-glow">ESG Score</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className={`text-2xl font-bold ${getScoreColor(supplier.esgScore)}`}>
-              {supplier.esgScore}/100
-            </div>
+            <div className={`text-2xl font-extrabold drop-shadow-glow animate-glow ${getScoreColor(supplier.esgScore)}`}>{supplier.esgScore}/100</div>
             <Progress value={supplier.esgScore} className="mt-2" />
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-600">Risk Events</CardTitle>
+            <CardTitle className="text-sm font-bold text-red-300 drop-shadow-glow animate-glow">Risk Events</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-red-600">
-              {supplier.riskEvents.length}
-            </div>
-            <p className="text-sm text-gray-600 mt-1">Active alerts</p>
+            <div className="text-2xl font-extrabold text-red-200 drop-shadow-glow animate-glow">{supplier.riskEvents.length}</div>
+            <p className="text-sm text-red-200 mt-1 drop-shadow-glow animate-glow">Active alerts</p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-600">Certifications</CardTitle>
+            <CardTitle className="text-sm font-bold text-blue-300 drop-shadow-glow animate-glow">Certifications</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-blue-600">
-              {supplier.certifications.length}
-            </div>
-            <p className="text-sm text-gray-600 mt-1">Active certificates</p>
+            <div className="text-2xl font-extrabold text-blue-200 drop-shadow-glow animate-glow">{supplier.certifications.length}</div>
+            <p className="text-sm text-blue-200 mt-1 drop-shadow-glow animate-glow">Active certificates</p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-gray-600">Documents</CardTitle>
+            <CardTitle className="text-sm font-bold text-green-300 drop-shadow-glow animate-glow">Documents</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-600">
-              {supplier.documents.length}
-            </div>
-            <p className="text-sm text-gray-600 mt-1">Uploaded files</p>
+            <div className="text-2xl font-extrabold text-green-200 drop-shadow-glow animate-glow">{supplier.documents.length}</div>
+            <p className="text-sm text-green-200 mt-1 drop-shadow-glow animate-glow">Uploaded files</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Detailed Information Tabs */}
       <Tabs defaultValue="categories" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="categories">ESG Categories</TabsTrigger>
-          <TabsTrigger value="documents">Documents</TabsTrigger>
-          <TabsTrigger value="events">Risk Events</TabsTrigger>
-          <TabsTrigger value="timeline">Timeline</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-4 bg-black/80 shadow drop-shadow-glow animate-glow">
+          <TabsTrigger value="categories" className="text-blue-300 font-bold drop-shadow-glow animate-glow">ESG Categories</TabsTrigger>
+          <TabsTrigger value="documents" className="text-blue-300 font-bold drop-shadow-glow animate-glow">Documents</TabsTrigger>
+          <TabsTrigger value="events" className="text-blue-300 font-bold drop-shadow-glow animate-glow">Risk Events</TabsTrigger>
+          <TabsTrigger value="timeline" className="text-blue-300 font-bold drop-shadow-glow animate-glow">Timeline</TabsTrigger>
         </TabsList>
 
         <TabsContent value="categories">
@@ -133,21 +121,17 @@ const SupplierDetail = ({ supplier, onBack }: SupplierDetailProps) => {
             {esgCategories.map((category) => {
               const score = supplier.categories[category.id as keyof typeof supplier.categories];
               return (
-                <Card key={category.id}>
+                <Card key={category.id} className="bg-black/80 shadow-lg drop-shadow-glow animate-glow">
                   <CardHeader>
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">{category.name}</CardTitle>
-                      <div className={`text-xl font-bold ${getScoreColor(score)}`}>
-                        {score}/100
-                      </div>
+                      <CardTitle className="text-lg text-blue-300 font-bold drop-shadow-glow animate-glow">{category.name}</CardTitle>
+                      <div className={`text-xl font-extrabold drop-shadow-glow animate-glow ${getScoreColor(score)}`}>{score}/100</div>
                     </div>
-                    <CardDescription>{category.description}</CardDescription>
+                    <CardDescription className="text-white/80 drop-shadow-glow animate-glow">{category.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Progress value={score} className="mb-3" />
-                    <div className="text-sm text-gray-600">
-                      Performance: {score >= 80 ? 'Excellent' : score >= 60 ? 'Good' : 'Needs Improvement'}
-                    </div>
+                    <div className="text-sm text-white/80 drop-shadow-glow animate-glow">Performance: {score >= 80 ? 'Excellent' : score >= 60 ? 'Good' : 'Needs Improvement'}</div>
                   </CardContent>
                 </Card>
               );
@@ -156,35 +140,33 @@ const SupplierDetail = ({ supplier, onBack }: SupplierDetailProps) => {
         </TabsContent>
 
         <TabsContent value="documents">
-          <Card>
+          <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <FileText className="h-5 w-5 mr-2 text-blue-600" />
+              <CardTitle className="flex items-center text-blue-300 font-bold drop-shadow-glow animate-glow">
+                <FileText className="h-5 w-5 mr-2 text-blue-300 drop-shadow-glow animate-glow" />
                 Uploaded Documents
               </CardTitle>
-              <CardDescription>Review submitted compliance documentation</CardDescription>
+              <CardDescription className="text-white/80 drop-shadow-glow animate-glow">Review submitted compliance documentation</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {supplier.documents.map((doc) => (
-                  <div key={doc.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={doc.id} className="flex items-center justify-between p-4 border rounded-lg bg-black/60 shadow drop-shadow-glow animate-glow">
                     <div className="flex items-center space-x-4">
-                      <div className="bg-blue-100 p-2 rounded">
-                        <FileText className="h-5 w-5 text-blue-600" />
+                      <div className="bg-blue-900 p-2 rounded shadow drop-shadow-glow animate-glow">
+                        <FileText className="h-5 w-5 text-blue-300 drop-shadow-glow animate-glow" />
                       </div>
                       <div>
-                        <h3 className="font-medium text-gray-900">{doc.name}</h3>
-                        <p className="text-sm text-gray-600">
-                          {getCategoryName(doc.category)} • Uploaded {doc.uploadDate}
-                        </p>
+                        <h3 className="font-bold text-white drop-shadow-glow animate-glow">{doc.name}</h3>
+                        <p className="text-sm text-blue-200 drop-shadow-glow animate-glow">{getCategoryName(doc.category)} • Uploaded {doc.uploadDate}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
                       {getDocumentStatusIcon(doc.status)}
                       <Badge className={
-                        doc.status === 'approved' ? 'bg-green-100 text-green-800' :
-                        doc.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
+                        doc.status === 'approved' ? 'bg-green-700 text-green-200 font-bold drop-shadow-glow animate-glow' :
+                        doc.status === 'pending' ? 'bg-yellow-700 text-yellow-200 font-bold drop-shadow-glow animate-glow' :
+                        'bg-red-700 text-red-200 font-bold drop-shadow-glow animate-glow'
                       }>
                         {doc.status.toUpperCase()}
                       </Badge>
@@ -197,45 +179,45 @@ const SupplierDetail = ({ supplier, onBack }: SupplierDetailProps) => {
         </TabsContent>
 
         <TabsContent value="events">
-          <Card>
+          <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <AlertTriangle className="h-5 w-5 mr-2 text-orange-600" />
+              <CardTitle className="flex items-center text-orange-300 font-bold drop-shadow-glow animate-glow">
+                <AlertTriangle className="h-5 w-5 mr-2 text-orange-300 drop-shadow-glow animate-glow" />
                 Risk Events & Alerts
               </CardTitle>
-              <CardDescription>Historical and current compliance issues</CardDescription>
+              <CardDescription className="text-white/80 drop-shadow-glow animate-glow">Historical and current compliance issues</CardDescription>
             </CardHeader>
             <CardContent>
               {supplier.riskEvents.length > 0 ? (
                 <div className="space-y-4">
                   {supplier.riskEvents.map((event) => (
-                    <div key={event.id} className={`p-4 rounded-lg border-l-4 ${
-                      event.severity === 'high' ? 'border-l-red-500 bg-red-50' :
-                      event.severity === 'medium' ? 'border-l-yellow-500 bg-yellow-50' :
-                      'border-l-green-500 bg-green-50'
+                    <div key={event.id} className={`p-4 rounded-lg border-l-4 drop-shadow-glow animate-glow ${
+                      event.severity === 'high' ? 'border-l-red-400 bg-red-900/80' :
+                      event.severity === 'medium' ? 'border-l-yellow-400 bg-yellow-900/80' :
+                      'border-l-green-400 bg-green-900/80'
                     }`}>
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-semibold text-gray-900">{event.type}</h3>
+                        <h3 className="font-semibold text-white drop-shadow-glow animate-glow">{event.type}</h3>
                         <Badge className={
-                          event.severity === 'high' ? 'bg-red-100 text-red-800' :
-                          event.severity === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                          'bg-green-100 text-green-800'
+                          event.severity === 'high' ? 'bg-red-700 text-red-200 font-bold drop-shadow-glow animate-glow' :
+                          event.severity === 'medium' ? 'bg-yellow-700 text-yellow-200 font-bold drop-shadow-glow animate-glow' :
+                          'bg-green-700 text-green-200 font-bold drop-shadow-glow animate-glow'
                         }>
                           {event.severity.toUpperCase()}
                         </Badge>
                       </div>
-                      <p className="text-gray-700 mb-2">{event.description}</p>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="h-4 w-4 mr-1" />
+                      <p className="text-white/80 mb-2 drop-shadow-glow animate-glow">{event.description}</p>
+                      <div className="flex items-center text-sm text-blue-200 drop-shadow-glow animate-glow">
+                        <Calendar className="h-4 w-4 mr-1 text-blue-300 drop-shadow-glow animate-glow" />
                         {event.date}
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8 text-gray-500">
-                  <CheckCircle className="h-12 w-12 mx-auto mb-4 text-green-400" />
-                  <p className="text-lg font-medium">No Risk Events</p>
+                <div className="text-center py-8 text-green-200 drop-shadow-glow animate-glow">
+                  <CheckCircle className="h-12 w-12 mx-auto mb-4 text-green-300 drop-shadow-glow animate-glow" />
+                  <p className="text-lg font-bold drop-shadow-glow animate-glow">No Risk Events</p>
                   <p>This supplier has maintained excellent compliance</p>
                 </div>
               )}
@@ -244,57 +226,57 @@ const SupplierDetail = ({ supplier, onBack }: SupplierDetailProps) => {
         </TabsContent>
 
         <TabsContent value="timeline">
-          <Card>
+          <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <TrendingUp className="h-5 w-5 mr-2 text-blue-600" />
+              <CardTitle className="flex items-center text-blue-300 font-bold drop-shadow-glow animate-glow">
+                <TrendingUp className="h-5 w-5 mr-2 text-blue-300 drop-shadow-glow animate-glow" />
                 Risk Evolution Timeline
               </CardTitle>
-              <CardDescription>Track how supplier risk has changed over time</CardDescription>
+              <CardDescription className="text-white/80 drop-shadow-glow animate-glow">Track how supplier risk has changed over time</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-green-100 p-2 rounded-full">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  <div className="bg-green-700 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                    <CheckCircle className="h-4 w-4 text-green-200 drop-shadow-glow animate-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">Current Status</h3>
-                    <p className="text-sm text-gray-600">ESG Score: {supplier.esgScore}/100</p>
-                    <p className="text-xs text-gray-500">Last updated: Today</p>
+                    <h3 className="font-bold text-white drop-shadow-glow animate-glow">Current Status</h3>
+                    <p className="text-sm text-green-200 drop-shadow-glow animate-glow">ESG Score: {supplier.esgScore}/100</p>
+                    <p className="text-xs text-blue-200 drop-shadow-glow animate-glow">Last updated: Today</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <Award className="h-4 w-4 text-blue-600" />
+                  <div className="bg-blue-900 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                    <Award className="h-4 w-4 text-blue-300 drop-shadow-glow animate-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">Certification Renewal</h3>
-                    <p className="text-sm text-gray-600">ISO 14001 certification renewed</p>
-                    <p className="text-xs text-gray-500">{supplier.lastAudit}</p>
+                    <h3 className="font-bold text-white drop-shadow-glow animate-glow">Certification Renewal</h3>
+                    <p className="text-sm text-blue-200 drop-shadow-glow animate-glow">ISO 14001 certification renewed</p>
+                    <p className="text-xs text-blue-200 drop-shadow-glow animate-glow">{supplier.lastAudit}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-yellow-100 p-2 rounded-full">
-                    <AlertTriangle className="h-4 w-4 text-yellow-600" />
+                  <div className="bg-yellow-700 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                    <AlertTriangle className="h-4 w-4 text-yellow-200 drop-shadow-glow animate-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">Compliance Review</h3>
-                    <p className="text-sm text-gray-600">Quarterly audit completed</p>
-                    <p className="text-xs text-gray-500">3 months ago</p>
+                    <h3 className="font-bold text-white drop-shadow-glow animate-glow">Compliance Review</h3>
+                    <p className="text-sm text-yellow-200 drop-shadow-glow animate-glow">Quarterly audit completed</p>
+                    <p className="text-xs text-blue-200 drop-shadow-glow animate-glow">3 months ago</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-green-100 p-2 rounded-full">
-                    <TrendingUp className="h-4 w-4 text-green-600" />
+                  <div className="bg-green-700 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                    <TrendingUp className="h-4 w-4 text-green-200 drop-shadow-glow animate-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">Score Improvement</h3>
-                    <p className="text-sm text-gray-600">ESG score increased from 75 to {supplier.esgScore}</p>
-                    <p className="text-xs text-gray-500">6 months ago</p>
+                    <h3 className="font-bold text-white drop-shadow-glow animate-glow">Score Improvement</h3>
+                    <p className="text-sm text-green-200 drop-shadow-glow animate-glow">ESG score increased from 75 to {supplier.esgScore}</p>
+                    <p className="text-xs text-blue-200 drop-shadow-glow animate-glow">6 months ago</p>
                   </div>
                 </div>
               </div>
@@ -304,40 +286,38 @@ const SupplierDetail = ({ supplier, onBack }: SupplierDetailProps) => {
       </Tabs>
 
       {/* Recommendations */}
-      <Card className="mt-8">
+      <Card className="mt-8 bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
         <CardHeader>
-          <CardTitle>Risk Reduction Recommendations</CardTitle>
-          <CardDescription>Automated AI suggestions for improving supplier compliance</CardDescription>
+          <CardTitle className="text-xl font-bold text-blue-300 drop-shadow-glow animate-glow">Risk Reduction Recommendations</CardTitle>
+          <CardDescription className="text-white/80 drop-shadow-glow animate-glow">Automated AI suggestions for improving supplier compliance</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Priority Actions</h3>
+              <h3 className="font-bold text-white mb-3 drop-shadow-glow animate-glow">Priority Actions</h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start">
-                  <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5" />
-                  Address environmental compliance gaps
+                  <AlertTriangle className="h-4 w-4 text-red-300 mr-2 mt-0.5 drop-shadow-glow animate-glow" />
+                  <span className="text-white drop-shadow-glow animate-glow">Address environmental compliance gaps</span>
                 </li>
                 <li className="flex items-start">
-                  <AlertTriangle className="h-4 w-4 text-yellow-500 mr-2 mt-0.5" />
-                  Improve transparency reporting
+                  <AlertTriangle className="h-4 w-4 text-yellow-300 mr-2 mt-0.5 drop-shadow-glow animate-glow" />
+                  <span className="text-white drop-shadow-glow animate-glow">Improve transparency reporting</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" />
-                  Increase renewable energy usage
+                  <CheckCircle className="h-4 w-4 text-green-300 mr-2 mt-0.5 drop-shadow-glow animate-glow" />
+                  <span className="text-white drop-shadow-glow animate-glow">Increase renewable energy usage</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Next Review</h3>
-              <div className="bg-blue-50 p-4 rounded-lg">
+              <h3 className="font-bold text-white mb-3 drop-shadow-glow animate-glow">Next Review</h3>
+              <div className="bg-blue-900 p-4 rounded-lg shadow drop-shadow-glow animate-glow">
                 <div className="flex items-center">
-                  <Calendar className="h-5 w-5 text-blue-600 mr-2" />
-                  <span className="font-medium">Next Audit Due</span>
+                  <Calendar className="h-5 w-5 text-blue-300 mr-2 drop-shadow-glow animate-glow" />
+                  <span className="font-bold text-white drop-shadow-glow animate-glow">Next Audit Due</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-1">
-                  Scheduled for 3 months from last audit date
-                </p>
+                <p className="text-sm text-blue-200 mt-1 drop-shadow-glow animate-glow">Scheduled for 3 months from last audit date</p>
               </div>
             </div>
           </div>

@@ -29,7 +29,7 @@ const WalmartLogin = () => {
       if (email && password) {
         toast({
           title: "Login Successful",
-          description: "Welcome to Walmart Risk Compass Dashboard!",
+          description: "Welcome to WalSync!",
         });
         navigate("/walmart/dashboard");
       } else {
@@ -68,7 +68,7 @@ const WalmartLogin = () => {
         <Card className="shadow-lg border-0 bg-white dark:bg-gray-800">
           <CardHeader className="text-center">
             <CardTitle className="text-xl text-blue-700 dark:text-blue-400">
-              Risk Compass Access
+              Welcome Back!
             </CardTitle>
             <CardDescription className="dark:text-gray-300">
               Sign in to view supplier analytics, risk maps, and compliance
@@ -79,7 +79,7 @@ const WalmartLogin = () => {
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email" className="dark:text-gray-200">
-                  Walmart Email
+                 Email
                 </Label>
                 <Input
                   id="email"

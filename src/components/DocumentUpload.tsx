@@ -105,28 +105,27 @@ const DocumentUpload = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 text-white">
       {/* Category-wise Document Upload */}
       <div className="grid gap-6">
         {esgCategories.map((category) => {
           const progress = getDocumentProgress(category.id, category.requiredDocuments);
           const categoryDocs = getCategoryDocuments(category.id);
-          
           return (
-            <Card key={category.id} className="border-l-4 border-l-blue-500">
+            <Card key={category.id} className="border-l-4 border-l-blue-500 bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-lg">{category.name}</CardTitle>
-                    <CardDescription>{category.description}</CardDescription>
+                    <CardTitle className="text-lg text-blue-300 font-bold drop-shadow-glow animate-glow">{category.name}</CardTitle>
+                    <CardDescription className="text-white/80 drop-shadow-glow animate-glow">{category.description}</CardDescription>
                   </div>
                   <div className="text-right">
-                    <Badge variant="outline" className="mb-2">
+                    <Badge variant="outline" className="mb-2 text-white font-bold drop-shadow-glow animate-glow">
                       {progress.uploaded}/{progress.total} Documents
                     </Badge>
-                    <div className="w-32 bg-gray-200 rounded-full h-2">
+                    <div className="w-32 bg-blue-950 rounded-full h-2">
                       <div 
-                        className="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                        className="bg-blue-400 h-2 rounded-full transition-all duration-300 drop-shadow-glow animate-glow" 
                         style={{ width: `${progress.percentage}%` }}
                       ></div>
                     </div>
@@ -136,25 +135,24 @@ const DocumentUpload = () => {
               <CardContent className="space-y-4">
                 {/* Required Documents List */}
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900 mb-3">Required Documents:</h4>
+                  <h4 className="font-semibold text-white drop-shadow-glow animate-glow mb-3">Required Documents:</h4>
                   {category.requiredDocuments.map((docType, index) => {
                     const isUploaded = categoryDocs.some(doc => doc.documentType === docType);
                     const uploadedDoc = categoryDocs.find(doc => doc.documentType === docType);
-                    
                     return (
-                      <div key={index} className="border rounded-lg p-4 bg-gray-50">
+                      <div key={index} className="border rounded-lg p-4 bg-black/60 shadow drop-shadow-glow animate-glow">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center space-x-2">
                             {isUploaded ? (
-                              <CheckCircle className="h-5 w-5 text-green-600" />
+                              <CheckCircle className="h-5 w-5 text-green-400 drop-shadow-glow animate-glow" />
                             ) : (
-                              <AlertCircle className="h-5 w-5 text-yellow-600" />
+                              <AlertCircle className="h-5 w-5 text-yellow-400 drop-shadow-glow animate-glow" />
                             )}
-                            <span className="font-medium text-gray-900">{docType}</span>
+                            <span className="font-medium text-white drop-shadow-glow animate-glow">{docType}</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             {isUploaded && uploadedDoc && (
-                              <Badge className={getStatusColor(uploadedDoc.status)} variant="secondary">
+                              <Badge className={getStatusColor(uploadedDoc.status) + ' font-bold drop-shadow-glow animate-glow'} variant="secondary">
                                 <span className="flex items-center space-x-1">
                                   {getStatusIcon(uploadedDoc.status)}
                                   <span className="capitalize">{uploadedDoc.status}</span>
@@ -172,7 +170,7 @@ const DocumentUpload = () => {
                               <Button 
                                 variant={isUploaded ? "outline" : "default"} 
                                 size="sm"
-                                className="cursor-pointer"
+                                className={`cursor-pointer font-bold drop-shadow-glow animate-glow ${isUploaded ? 'text-blue-300 border-blue-300' : 'bg-blue-400 text-black'}`}
                               >
                                 <Plus className="h-4 w-4 mr-1" />
                                 {isUploaded ? "Re-upload" : "Upload"}
@@ -180,15 +178,14 @@ const DocumentUpload = () => {
                             </div>
                           </div>
                         </div>
-                        
                         {isUploaded && uploadedDoc && (
-                          <div className="mt-2 p-2 bg-white rounded border">
+                          <div className="mt-2 p-2 bg-black/80 rounded border border-blue-900">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center space-x-2">
-                                <FileText className="h-4 w-4 text-blue-600" />
-                                <span className="text-sm font-medium">{uploadedDoc.name}</span>
+                                <FileText className="h-4 w-4 text-blue-400 drop-shadow-glow animate-glow" />
+                                <span className="text-sm font-medium text-white drop-shadow-glow animate-glow">{uploadedDoc.name}</span>
                               </div>
-                              <div className="text-xs text-gray-500">
+                              <div className="text-xs text-blue-200">
                                 {uploadedDoc.size} • {uploadedDoc.uploadDate}
                               </div>
                             </div>
@@ -205,13 +202,13 @@ const DocumentUpload = () => {
       </div>
 
       {/* Overall Progress Summary */}
-      <Card>
+      <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
         <CardHeader>
-          <CardTitle className="flex items-center">
-            <FileText className="h-5 w-5 mr-2 text-green-600" />
+          <CardTitle className="flex items-center text-blue-300 font-bold drop-shadow-glow animate-glow">
+            <FileText className="h-5 w-5 mr-2 text-blue-300 drop-shadow-glow animate-glow" />
             Overall Documentation Progress
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-white/80 drop-shadow-glow animate-glow">
             Complete all categories to maximize your ESG score
           </CardDescription>
         </CardHeader>
@@ -220,30 +217,29 @@ const DocumentUpload = () => {
             {esgCategories.map((category) => {
               const progress = getDocumentProgress(category.id, category.requiredDocuments);
               const isComplete = progress.percentage === 100;
-              
               return (
-                <div key={category.id} className={`p-3 rounded-lg border text-center ${
-                  isComplete ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'
+                <div key={category.id} className={`p-3 rounded-lg border text-center font-bold drop-shadow-glow animate-glow ${
+                  isComplete ? 'bg-green-900 border-green-400 text-green-200' : 'bg-blue-950 border-blue-400 text-blue-200'
                 }`}>
                   <div className={`w-8 h-8 mx-auto mb-2 rounded-full flex items-center justify-center ${
-                    isComplete ? 'bg-green-100' : 'bg-gray-100'
+                    isComplete ? 'bg-green-700' : 'bg-blue-900'
                   }`}>
                     {isComplete ? (
-                      <CheckCircle className="h-4 w-4 text-green-600" />
+                      <CheckCircle className="h-4 w-4 text-green-300 drop-shadow-glow animate-glow" />
                     ) : (
-                      <FileText className="h-4 w-4 text-gray-400" />
+                      <FileText className="h-4 w-4 text-blue-300 drop-shadow-glow animate-glow" />
                     )}
                   </div>
-                  <p className="text-xs font-medium text-gray-900 mb-1">
+                  <p className="text-xs font-bold mb-1 drop-shadow-glow animate-glow">
                     {category.name.split(' ').slice(0, 2).join(' ')}
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs drop-shadow-glow animate-glow">
                     {progress.uploaded}/{progress.total}
                   </p>
-                  <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
+                  <div className="w-full bg-blue-900 rounded-full h-1 mt-1">
                     <div 
-                      className={`h-1 rounded-full transition-all duration-300 ${
-                        isComplete ? 'bg-green-500' : 'bg-blue-500'
+                      className={`h-1 rounded-full transition-all duration-300 drop-shadow-glow animate-glow ${
+                        isComplete ? 'bg-green-400' : 'bg-blue-400'
                       }`}
                       style={{ width: `${progress.percentage}%` }}
                     ></div>
@@ -256,51 +252,49 @@ const DocumentUpload = () => {
       </Card>
 
       {/* All Uploaded Documents */}
-      <Card>
+      <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
         <CardHeader>
-          <CardTitle className="flex items-center">
-            <FileText className="h-5 w-5 mr-2 text-blue-600" />
+          <CardTitle className="flex items-center text-blue-300 font-bold drop-shadow-glow animate-glow">
+            <FileText className="h-5 w-5 mr-2 text-blue-300 drop-shadow-glow animate-glow" />
             All Uploaded Documents ({documents.length})
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-white/80 drop-shadow-glow animate-glow">
             View and manage all your submitted compliance documents
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {documents.map((doc) => (
-              <div key={doc.id} className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50">
+              <div key={doc.id} className="flex items-center justify-between p-3 border rounded-lg bg-black/60 shadow drop-shadow-glow animate-glow">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-blue-100 p-2 rounded">
-                    <FileText className="h-4 w-4 text-blue-600" />
+                  <div className="bg-blue-900 p-2 rounded shadow drop-shadow-glow animate-glow">
+                    <FileText className="h-4 w-4 text-blue-300 drop-shadow-glow animate-glow" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900">{doc.name}</h3>
-                    <p className="text-sm text-gray-600">
+                    <h3 className="font-bold text-white drop-shadow-glow animate-glow">{doc.name}</h3>
+                    <p className="text-sm text-blue-200 drop-shadow-glow animate-glow">
                       {doc.documentType} • {doc.size} • {doc.uploadDate}
                     </p>
                   </div>
                 </div>
-                
                 <div className="flex items-center space-x-3">
-                  <Badge className={getStatusColor(doc.status)} variant="secondary">
+                  <Badge className={getStatusColor(doc.status) + ' font-bold drop-shadow-glow animate-glow'} variant="secondary">
                     <span className="flex items-center space-x-1">
                       {getStatusIcon(doc.status)}
                       <span className="capitalize">{doc.status}</span>
                     </span>
                   </Badge>
                   {doc.status === 'rejected' && (
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="text-blue-300 border-blue-300 font-bold drop-shadow-glow animate-glow">
                       Re-upload
                     </Button>
                   )}
                 </div>
               </div>
             ))}
-            
             {documents.length === 0 && (
-              <div className="text-center py-12 text-gray-500">
-                <Upload className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+              <div className="text-center py-12 text-blue-200 drop-shadow-glow animate-glow">
+                <Upload className="h-12 w-12 mx-auto mb-4 text-blue-900 drop-shadow-glow animate-glow" />
                 <p>No documents uploaded yet</p>
                 <p className="text-sm">Upload your first compliance document to get started</p>
               </div>

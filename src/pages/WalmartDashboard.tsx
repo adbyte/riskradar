@@ -42,18 +42,17 @@ const WalmartDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-black">
       <WalmartNavbar />
 
       <div className="container mx-auto p-6">
         {/* Dashboard Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-400 via-blue-200 to-white bg-clip-text text-transparent drop-shadow-glow animate-glow mb-2">
               Supplier Risk Analytics
             </h1>
-
-            <p className="text-gray-600">
+            <p className="text-lg text-white drop-shadow-glow">
               Monitor ESG compliance across your global supplier network
             </p>
           </div>
@@ -62,10 +61,10 @@ const WalmartDashboard = () => {
               value={viewMode}
               onValueChange={(value: "map" | "table") => setViewMode(value)}
             >
-              <SelectTrigger className="w-40">
+              <SelectTrigger className="w-40 font-bold drop-shadow-glow animate-glow bg-black text-white border-blue-400">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-black text-white font-bold drop-shadow-glow animate-glow">
                 <SelectItem value="map">Map View</SelectItem>
                 <SelectItem value="table">Table View</SelectItem>
               </SelectContent>
@@ -83,170 +82,125 @@ const WalmartDashboard = () => {
           <TabsContent value="overview" className="mt-6">
             {/* Key Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-8">
-              <Card>
+              <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-gray-600">
-                    Total Suppliers
-                  </CardTitle>
+                  <CardTitle className="text-sm font-bold text-blue-300 drop-shadow-glow animate-glow">Total Suppliers</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-gray-900">
-                    {totalSuppliers}
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600 mt-1">
-                    <Users className="h-4 w-4 mr-1" />
-                    Active partnerships
+                  <div className="text-3xl font-extrabold text-white drop-shadow-glow animate-glow">{totalSuppliers}</div>
+                  <div className="flex items-center text-sm text-blue-200 mt-1 drop-shadow-glow animate-glow">
+                    <Users className="h-4 w-4 mr-1 text-blue-300 drop-shadow-glow animate-glow" />Active partnerships
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-l-4 border-l-green-500">
+              <Card className="border-l-4 border-l-green-400 bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-green-700">
-                    Low Risk
-                  </CardTitle>
+                  <CardTitle className="text-sm font-bold text-green-300 drop-shadow-glow animate-glow">Low Risk</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-green-600">
-                    {lowRiskSuppliers}
-                  </div>
-                  <div className="flex items-center text-sm text-green-600 mt-1">
-                    <TrendingUp className="h-4 w-4 mr-1" />+
-                    {riskTrends.low.change} this month
+                  <div className="text-3xl font-extrabold text-green-200 drop-shadow-glow animate-glow">{lowRiskSuppliers}</div>
+                  <div className="flex items-center text-sm text-green-200 mt-1 drop-shadow-glow animate-glow">
+                    <TrendingUp className="h-4 w-4 mr-1 text-green-300 drop-shadow-glow animate-glow" />+{riskTrends.low.change} this month
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-l-4 border-l-yellow-500">
+              <Card className="border-l-4 border-l-yellow-400 bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-yellow-700">
-                    Medium Risk
-                  </CardTitle>
+                  <CardTitle className="text-sm font-bold text-yellow-300 drop-shadow-glow animate-glow">Medium Risk</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-yellow-600">
-                    {mediumRiskSuppliers}
-                  </div>
-                  <div className="flex items-center text-sm text-yellow-600 mt-1">
-                    <TrendingUp className="h-4 w-4 mr-1" />+
-                    {riskTrends.medium.change} this month
+                  <div className="text-3xl font-extrabold text-yellow-200 drop-shadow-glow animate-glow">{mediumRiskSuppliers}</div>
+                  <div className="flex items-center text-sm text-yellow-200 mt-1 drop-shadow-glow animate-glow">
+                    <TrendingUp className="h-4 w-4 mr-1 text-yellow-300 drop-shadow-glow animate-glow" />+{riskTrends.medium.change} this month
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-l-4 border-l-red-500">
+              <Card className="border-l-4 border-l-red-400 bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-red-700">
-                    High Risk
-                  </CardTitle>
+                  <CardTitle className="text-sm font-bold text-red-300 drop-shadow-glow animate-glow">High Risk</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-red-600">
-                    {highRiskSuppliers}
-                  </div>
-                  <div className="flex items-center text-sm text-red-600 mt-1">
-                    <TrendingDown className="h-4 w-4 mr-1" />-
-                    {Math.abs(riskTrends.high.change)} this month
+                  <div className="text-3xl font-extrabold text-red-200 drop-shadow-glow animate-glow">{highRiskSuppliers}</div>
+                  <div className="flex items-center text-sm text-red-200 mt-1 drop-shadow-glow animate-glow">
+                    <TrendingDown className="h-4 w-4 mr-1 text-red-300 drop-shadow-glow animate-glow" />-{Math.abs(riskTrends.high.change)} this month
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-gray-600">
-                    Avg. ESG Score
-                  </CardTitle>
+                  <CardTitle className="text-sm font-bold text-blue-300 drop-shadow-glow animate-glow">Avg. ESG Score</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold text-blue-600">
-                    {averageScore}
-                  </div>
-                  <div className="flex items-center text-sm text-blue-600 mt-1">
-                    <TrendingUp className="h-4 w-4 mr-1" />
-                    +3.2 vs last quarter
+                  <div className="text-3xl font-extrabold text-blue-200 drop-shadow-glow animate-glow">{averageScore}</div>
+                  <div className="flex items-center text-sm text-blue-200 mt-1 drop-shadow-glow animate-glow">
+                    <TrendingUp className="h-4 w-4 mr-1 text-blue-300 drop-shadow-glow animate-glow" />+3.2 vs last quarter
                   </div>
                 </CardContent>
               </Card>
             </div>
 
             {/* Recent Alerts */}
-            <Card className="mb-8">
+            <Card className="mb-8 bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
               <CardHeader>
-                <CardTitle className="flex items-center">
-                  <AlertTriangle className="h-5 w-5 mr-2 text-orange-600" />
+                <CardTitle className="flex items-center text-orange-300 font-bold drop-shadow-glow animate-glow">
+                  <AlertTriangle className="h-5 w-5 mr-2 text-orange-300 drop-shadow-glow animate-glow" />
                   Recent Risk Alerts
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-white/80 drop-shadow-glow animate-glow">
                   High-priority compliance issues requiring attention
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-center justify-between p-4 bg-red-900/80 border border-red-400 rounded-lg shadow drop-shadow-glow animate-glow">
                     <div className="flex items-center space-x-3">
-                      <div className="bg-red-100 p-2 rounded-full">
-                        <AlertTriangle className="h-4 w-4 text-red-600" />
+                      <div className="bg-red-700 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                        <AlertTriangle className="h-4 w-4 text-red-300 drop-shadow-glow animate-glow" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-red-900">
-                          Environmental Violation
-                        </h3>
-                        <p className="text-sm text-red-700">
-                          Bangalore Electronics Corp - Exceeded emission limits
-                        </p>
+                        <h3 className="font-semibold text-red-200 drop-shadow-glow animate-glow">Environmental Violation</h3>
+                        <p className="text-sm text-red-300 drop-shadow-glow animate-glow">Bangalore Electronics Corp - Exceeded emission limits</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <Badge className="bg-red-100 text-red-800">
-                        High Risk
-                      </Badge>
-                      <p className="text-xs text-red-600 mt-1">2 days ago</p>
+                      <Badge className="bg-red-700 text-red-200 font-bold drop-shadow-glow animate-glow">High Risk</Badge>
+                      <p className="text-xs text-red-300 mt-1 drop-shadow-glow animate-glow">2 days ago</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <div className="flex items-center justify-between p-4 bg-yellow-900/80 border border-yellow-400 rounded-lg shadow drop-shadow-glow animate-glow">
                     <div className="flex items-center space-x-3">
-                      <div className="bg-yellow-100 p-2 rounded-full">
-                        <AlertTriangle className="h-4 w-4 text-yellow-600" />
+                      <div className="bg-yellow-700 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                        <AlertTriangle className="h-4 w-4 text-yellow-300 drop-shadow-glow animate-glow" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-yellow-900">
-                          Labor Compliance Issue
-                        </h3>
-                        <p className="text-sm text-yellow-700">
-                          Delhi Textiles - Overtime hours exceeded limits
-                        </p>
+                        <h3 className="font-semibold text-yellow-200 drop-shadow-glow animate-glow">Labor Compliance Issue</h3>
+                        <p className="text-sm text-yellow-300 drop-shadow-glow animate-glow">Delhi Textiles - Overtime hours exceeded limits</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <Badge className="bg-yellow-100 text-yellow-800">
-                        Medium Risk
-                      </Badge>
-                      <p className="text-xs text-yellow-600 mt-1">5 days ago</p>
+                      <Badge className="bg-yellow-700 text-yellow-200 font-bold drop-shadow-glow animate-glow">Medium Risk</Badge>
+                      <p className="text-xs text-yellow-300 mt-1 drop-shadow-glow animate-glow">5 days ago</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                  <div className="flex items-center justify-between p-4 bg-orange-900/80 border border-orange-400 rounded-lg shadow drop-shadow-glow animate-glow">
                     <div className="flex items-center space-x-3">
-                      <div className="bg-orange-100 p-2 rounded-full">
-                        <Calendar className="h-4 w-4 text-orange-600" />
+                      <div className="bg-orange-700 p-2 rounded-full shadow drop-shadow-glow animate-glow">
+                        <Calendar className="h-4 w-4 text-orange-300 drop-shadow-glow animate-glow" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-orange-900">
-                          Audit Overdue
-                        </h3>
-                        <p className="text-sm text-orange-700">
-                          Kolkata Steel Works - Annual audit due in 7 days
-                        </p>
+                        <h3 className="font-semibold text-orange-200 drop-shadow-glow animate-glow">Audit Overdue</h3>
+                        <p className="text-sm text-orange-300 drop-shadow-glow animate-glow">Kolkata Steel Works - Annual audit due in 7 days</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <Badge className="bg-orange-100 text-orange-800">
-                        Action Required
-                      </Badge>
-                      <p className="text-xs text-orange-600 mt-1">
-                        1 week remaining
-                      </p>
+                      <Badge className="bg-orange-700 text-orange-200 font-bold drop-shadow-glow animate-glow">Action Required</Badge>
+                      <p className="text-xs text-orange-300 mt-1 drop-shadow-glow animate-glow">1 week remaining</p>
                     </div>
                   </div>
                 </div>
@@ -270,90 +224,64 @@ const WalmartDashboard = () => {
 
           <TabsContent value="analytics" className="mt-6">
             <div className="grid md:grid-cols-2 gap-6">
-              <Card>
+              <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader>
-                  <CardTitle>Risk Distribution Trends</CardTitle>
-                  <CardDescription>
-                    Changes in supplier risk levels over time
-                  </CardDescription>
+                  <CardTitle className="text-xl font-bold text-blue-300 drop-shadow-glow animate-glow">Risk Distribution Trends</CardTitle>
+                  <CardDescription className="text-white/80 drop-shadow-glow animate-glow">Changes in supplier risk levels over time</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">
-                        High Risk Suppliers
-                      </span>
+                      <span className="text-sm font-bold text-red-300 drop-shadow-glow animate-glow">High Risk Suppliers</span>
                       <div className="flex items-center space-x-2">
-                        <div className="bg-red-100 px-2 py-1 rounded text-sm text-red-700">
-                          -{Math.abs(riskTrends.high.change)} suppliers
-                        </div>
-                        <TrendingDown className="h-4 w-4 text-red-600" />
+                        <div className="bg-red-700 px-2 py-1 rounded text-sm text-red-200 font-bold drop-shadow-glow animate-glow">-{Math.abs(riskTrends.high.change)} suppliers</div>
+                        <TrendingDown className="h-4 w-4 text-red-300 drop-shadow-glow animate-glow" />
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">
-                        Medium Risk Suppliers
-                      </span>
+                      <span className="text-sm font-bold text-yellow-300 drop-shadow-glow animate-glow">Medium Risk Suppliers</span>
                       <div className="flex items-center space-x-2">
-                        <div className="bg-yellow-100 px-2 py-1 rounded text-sm text-yellow-700">
-                          +{riskTrends.medium.change} supplier
-                        </div>
-                        <TrendingUp className="h-4 w-4 text-yellow-600" />
+                        <div className="bg-yellow-700 px-2 py-1 rounded text-sm text-yellow-200 font-bold drop-shadow-glow animate-glow">+{riskTrends.medium.change} supplier</div>
+                        <TrendingUp className="h-4 w-4 text-yellow-300 drop-shadow-glow animate-glow" />
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">
-                        Low Risk Suppliers
-                      </span>
+                      <span className="text-sm font-bold text-green-300 drop-shadow-glow animate-glow">Low Risk Suppliers</span>
                       <div className="flex items-center space-x-2">
-                        <div className="bg-green-100 px-2 py-1 rounded text-sm text-green-700">
-                          +{riskTrends.low.change} supplier
-                        </div>
-                        <TrendingUp className="h-4 w-4 text-green-600" />
+                        <div className="bg-green-700 px-2 py-1 rounded text-sm text-green-200 font-bold drop-shadow-glow animate-glow">+{riskTrends.low.change} supplier</div>
+                        <TrendingUp className="h-4 w-4 text-green-300 drop-shadow-glow animate-glow" />
                       </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-black/80 shadow-2xl drop-shadow-glow animate-glow">
                 <CardHeader>
-                  <CardTitle>Regional Risk Assessment</CardTitle>
-                  <CardDescription>
-                    Risk concentration by geographic region
-                  </CardDescription>
+                  <CardTitle className="text-xl font-bold text-blue-300 drop-shadow-glow animate-glow">Regional Risk Assessment</CardTitle>
+                  <CardDescription className="text-white/80 drop-shadow-glow animate-glow">Risk concentration by geographic region</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Maharashtra</span>
-                      <Badge className="bg-green-100 text-green-800">
-                        Low Risk
-                      </Badge>
+                      <span className="text-sm font-bold text-white drop-shadow-glow animate-glow">Maharashtra</span>
+                      <Badge className="bg-green-700 text-green-200 font-bold drop-shadow-glow animate-glow">Low Risk</Badge>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Tamil Nadu</span>
-                      <Badge className="bg-green-100 text-green-800">
-                        Low Risk
-                      </Badge>
+                      <span className="text-sm font-bold text-white drop-shadow-glow animate-glow">Tamil Nadu</span>
+                      <Badge className="bg-green-700 text-green-200 font-bold drop-shadow-glow animate-glow">Low Risk</Badge>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Delhi</span>
-                      <Badge className="bg-yellow-100 text-yellow-800">
-                        Medium Risk
-                      </Badge>
+                      <span className="text-sm font-bold text-white drop-shadow-glow animate-glow">Delhi</span>
+                      <Badge className="bg-yellow-700 text-yellow-200 font-bold drop-shadow-glow animate-glow">Medium Risk</Badge>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">West Bengal</span>
-                      <Badge className="bg-yellow-100 text-yellow-800">
-                        Medium Risk
-                      </Badge>
+                      <span className="text-sm font-bold text-white drop-shadow-glow animate-glow">West Bengal</span>
+                      <Badge className="bg-yellow-700 text-yellow-200 font-bold drop-shadow-glow animate-glow">Medium Risk</Badge>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Karnataka</span>
-                      <Badge className="bg-red-100 text-red-800">
-                        High Risk
-                      </Badge>
+                      <span className="text-sm font-bold text-white drop-shadow-glow animate-glow">Karnataka</span>
+                      <Badge className="bg-red-700 text-red-200 font-bold drop-shadow-glow animate-glow">High Risk</Badge>
                     </div>
                   </div>
                 </CardContent>
